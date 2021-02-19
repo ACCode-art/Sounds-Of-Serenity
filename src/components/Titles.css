@@ -1,0 +1,33 @@
+.titles {
+  align-items: center;
+  display: flex;
+  height: 30px;
+  padding: 0 10px;
+  color: rgba(255, 255, 255, 0.411);
+  transition: 400ms;
+  font-style: italic;
+}
+
+.titles__left {
+  flex: 0.2;
+}
+
+.titles__right {
+  flex: 0.8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.titles__rightTitle {
+  flex: 2;
+}
+.titles__rightLength {
+  flex: 1;
+}
+.titles__rightRelease {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+}

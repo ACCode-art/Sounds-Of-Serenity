@@ -1,0 +1,11 @@
+.main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgb(0, 0, 0);
+  overflow-y: scroll;
+}
+
+.main::-webkit-scrollbar {
+  display: none;
+}

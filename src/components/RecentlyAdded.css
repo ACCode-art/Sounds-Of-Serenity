@@ -1,0 +1,18 @@
+.recentlyAdded {
+  margin-top: 30px;
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0),
+    rgba(4, 128, 185, 0.185)
+  );
+  border-radius: 10px;
+  width: 90%;
+  color: white;
+}
+
+.recentlyAdded > h1 {
+  font-size: 25px;
+  padding-left: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}

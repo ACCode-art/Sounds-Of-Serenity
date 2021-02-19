@@ -1,0 +1,103 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10vh;
+  background-color: rgb(0, 0, 0);
+  padding: 0 2%;
+  color: white;
+  position: fixed;
+  width: 96%;
+}
+.nav__left {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.nav__left > .MuiSvgIcon-root {
+  color: white;
+  font-size: 45px;
+  transition: 500ms;
+}
+.nav__left > .MuiSvgIcon-root:hover {
+  color: rgb(33, 136, 167);
+  cursor: pointer;
+}
+.nav__left > p {
+  color: grey;
+  font-size: 12px;
+  margin-left: 2px;
+  display: flex;
+  align-items: center;
+}
+
+.nav__left > p > span {
+  color: white;
+  margin-left: 4px;
+}
+
+.nav__right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.nav__middle {
+  flex: 2;
+}
+
+.nav__middle {
+  color: white;
+}
+
+.nav__middleTop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav__middleTop > span > .MuiSvgIcon-root {
+  font-size: 50px;
+  transition: 500ms;
+}
+.nav__middleTop > span > .MuiSvgIcon-root:hover {
+  color: rgb(33, 136, 167);
+  cursor: pointer;
+}
+
+.playing {
+  color: green;
+}
+
+.nav__middleTop > .smallIcons {
+  font-size: 20px;
+  margin: 0 10px;
+  color: grey;
+}
+.nav__middleTop > .smallIcons:hover {
+  color: rgb(33, 136, 167);
+  cursor: pointer;
+}
+
+.nav__middleMid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav__middleMid > input {
+  color: rgb(255, 255, 255);
+  margin-right: 6px;
+  height: 1px;
+  width: 300px;
+}
+
+.nav__middleMid > .smallIcons {
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+}
+
+.hide {
+  display: none;
+}
