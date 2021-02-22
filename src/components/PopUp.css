@@ -1,0 +1,48 @@
+.popUp {
+  background: rgb(0, 0, 0);
+  color: white;
+  width: 400px;
+
+  position: fixed;
+  margin-left: -1330px;
+  margin-top: 70px;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+
+.popUp__track {
+  display: flex;
+  align-items: center;
+  transition: 200ms;
+  height: 40px;
+  border-radius: 5px;
+}
+.popUp__track:hover {
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.123);
+  transform: scale(1.03);
+}
+
+.popUp__track > img {
+  width: 25px;
+  height: 25px;
+  margin-left: 5px;
+}
+.popUp__track > p {
+  margin-left: 5px;
+}
+
+.popUp__top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.popUp > .popUp__top > .MuiSvgIcon-root {
+  font-size: 30px;
+  margin-bottom: 5px;
+}
+
+.popUp > .popUp__top > .MuiSvgIcon-root {
+  cursor: pointer;
+}

@@ -20,7 +20,7 @@ function Track({ title, release, background, length, src }) {
         </div>
         <div className="track__rightRelease">
           <p>{release}</p>
-          <div className="track__rightReleaseIcons">
+          <div>
             <FavoriteBorder />
           </div>
         </div>

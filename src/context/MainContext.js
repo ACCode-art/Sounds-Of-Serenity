@@ -1,4 +1,4 @@
-import React, { createContext, useReducer } from "react";
+import React, { createContext, useReducer, useState } from "react";
 import playerReducer from "./playerReducer";
 
 export const MainContext = createContext();
@@ -6,6 +6,10 @@ export const MainContext = createContext();
 export const MusicProvider = (props) => {
   const initialState = { currentSong: "", playing: false, src: "" };
   const [state, dispatch] = useReducer(playerReducer, initialState);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [show, setShow] = useState(false);
+
+  console.log(`is this showing? ${show}`);
 
   const setCurrent = (id, file) =>
     dispatch({ type: "set-current-song", data: { id, file } });
@@ -62,6 +66,10 @@ export const MusicProvider = (props) => {
         playing: state.playing,
         togglePlaying,
         setCurrent,
+        searchTerm,
+        setSearchTerm,
+        setShow,
+        show,
       }}
     >
       {props.children}

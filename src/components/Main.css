@@ -9,3 +9,21 @@
 .main::-webkit-scrollbar {
   display: none;
 }
+
+.main__input {
+  display: flex;
+
+  height: 40px;
+  width: 90%;
+  margin-top: 20px;
+}
+
+.main__input > input {
+  width: 350px;
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  padding-left: 10px;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0.534);
+  color: white;
+}

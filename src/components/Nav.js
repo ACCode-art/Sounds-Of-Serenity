@@ -1,8 +1,10 @@
 import { Avatar, Slider } from "@material-ui/core";
 import {
   AirlineSeatFlat,
+  Favorite,
   LocalConvenienceStoreOutlined,
   Pause,
+  PauseCircleFilled,
   PlayCircleFilled,
   Repeat,
   VolumeUp,
@@ -12,7 +14,9 @@ import "./Nav.css";
 import { MainContext } from "../context/MainContext";
 
 function Nav() {
-  const { currentSong, togglePlaying, src, playing } = useContext(MainContext);
+  const { currentSong, togglePlaying, src, playing, setShow } = useContext(
+    MainContext
+  );
 
   const audio = useRef("audio_tag");
 
@@ -30,6 +34,21 @@ function Nav() {
     }
   }, [currentSong]);
 
+  const handleVolume = (q) => {
+    setStateVolum(q);
+    audio.current.volume = q;
+  };
+
+  const handleProgress = (e) => {
+    let compute = (e.target.value * dur) / 100;
+    setCurrentTime(compute);
+    audio.current.currentTime = compute;
+  };
+
+  const fmtMSS = (s) => {
+    return (s - (s %= 60)) / 60 + (9 < s ? ":" : ":0") + ~~s;
+  };
+
   return (
     <div className="nav">
       <audio
@@ -42,15 +61,11 @@ function Nav() {
       ></audio>
       <div className="nav__left">
         <AirlineSeatFlat />
-
-        <p>
-          Now Playing: <span>{currentSong}</span>
-        </p>
+        <Favorite className="nav__leftLiked" onClick={() => setShow(true)} />
       </div>
       <div className="nav__middle">
         <div className="nav__middleTop">
-          <Repeat className="smallIcons" />
-          <span>
+          <span className={!playing ? "" : "hide"}>
             <PlayCircleFilled
               onClick={() => {
                 togglePlaying();
@@ -58,15 +73,36 @@ function Nav() {
               }}
             />
           </span>
-          <Pause className="smallIcons" />
+          <span className={!playing ? "hide" : ""}>
+            <PauseCircleFilled
+              className="smallIcons"
+              onClick={() => {
+                togglePlaying();
+                toggleAudio();
+              }}
+            />
+          </span>
         </div>
         <div className="nav__middleMid">
-          <input type="range" />
-          <VolumeUp className="smallIcons" />
+          <p>{fmtMSS(currentTime)}</p>
+          <input
+            type="range"
+            onChange={handleProgress}
+            value={dur ? (currentTime * 100) / dur : 0}
+          />
+          <p>{fmtMSS(dur)}</p>
+        </div>
+        <div className="nav__middleBottom">
+          <p>{currentSong}</p>
         </div>
       </div>
       <div className="nav__right">
-        <Avatar src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdch81km8r5tow.cloudfront.net%2Fwp-content%2Fuploads%2F2019%2F02%2FCover-photo-of-Limmy-copy.jpg&f=1&nofb=1" />
+        <input
+          value={Math.round(statevolum * 100)}
+          onChange={(e) => handleVolume(e.target.value / 100)}
+          type="range"
+        />
+        <VolumeUp className="smallIcons" />
       </div>
     </div>
   );
