@@ -4,7 +4,13 @@ import { MainContext } from "../context/MainContext";
 import { FavoriteBorder } from "@material-ui/icons";
 
 function Track({ title, release, background, length, src }) {
-  const { togglePlaying, setCurrent } = useContext(MainContext);
+  const { togglePlaying, setCurrent, liked, setLiked } = useContext(
+    MainContext
+  );
+
+  function pushHandler() {
+    setLiked([...liked, { title: title, img: background, src: src }]);
+  }
 
   return (
     <div className="track" onClick={() => setCurrent(title, src)}>
@@ -20,7 +26,7 @@ function Track({ title, release, background, length, src }) {
         </div>
         <div className="track__rightRelease">
           <p>{release}</p>
-          <div>
+          <div className="track__rightReleaseIcons" onClick={pushHandler}>
             <FavoriteBorder />
           </div>
         </div>

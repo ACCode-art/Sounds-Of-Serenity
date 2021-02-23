@@ -8,8 +8,9 @@ export const MusicProvider = (props) => {
   const [state, dispatch] = useReducer(playerReducer, initialState);
   const [searchTerm, setSearchTerm] = useState("");
   const [show, setShow] = useState(false);
+  const [liked, setLiked] = useState([]);
 
-  console.log(`is this showing? ${show}`);
+  console.log(liked);
 
   const setCurrent = (id, file) =>
     dispatch({ type: "set-current-song", data: { id, file } });
@@ -70,6 +71,8 @@ export const MusicProvider = (props) => {
         setSearchTerm,
         setShow,
         show,
+        liked,
+        setLiked,
       }}
     >
       {props.children}

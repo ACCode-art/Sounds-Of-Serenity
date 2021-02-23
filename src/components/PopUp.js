@@ -2,9 +2,10 @@ import { Clear } from "@material-ui/icons";
 import React, { useContext } from "react";
 import { MainContext } from "../context/MainContext";
 import "./PopUp.css";
+import Track from "./Track";
 
 function PopUp() {
-  const { show, setShow } = useContext(MainContext);
+  const { show, setShow, liked } = useContext(MainContext);
   return (
     <div
       className="popUp"
@@ -17,27 +18,9 @@ function PopUp() {
         <Clear onClick={() => setShow(false)} />
       </div>
 
-      <div className="popUp__track">
-        <img
-          src="https://images.pexels.com/photos/3493777/pexels-photo-3493777.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-          alt=""
-        />
-        <p>Track 1</p>
-      </div>
-      <div className="popUp__track">
-        <img
-          src="https://images.pexels.com/photos/3493777/pexels-photo-3493777.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-          alt=""
-        />
-        <p>Track 1</p>
-      </div>
-      <div className="popUp__track">
-        <img
-          src="https://images.pexels.com/photos/3493777/pexels-photo-3493777.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-          alt=""
-        />
-        <p>Track 1</p>
-      </div>
+      {liked.map((like) => (
+        <Track title={like.title} background={like.img} src={like.src} />
+      ))}
     </div>
   );
 }

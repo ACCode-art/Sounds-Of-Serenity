@@ -12,6 +12,7 @@ import {
 import React, { useContext, useRef, useState, useEffect } from "react";
 import "./Nav.css";
 import { MainContext } from "../context/MainContext";
+import logo from "../img/logo.png";
 
 function Nav() {
   const { currentSong, togglePlaying, src, playing, setShow } = useContext(
@@ -60,7 +61,8 @@ function Nav() {
         onCanPlay={(e) => setDur(e.target.duration)}
       ></audio>
       <div className="nav__left">
-        <AirlineSeatFlat />
+        <img src={logo} alt="" />
+        <p>Sounds Of Serenity</p>
         <Favorite className="nav__leftLiked" onClick={() => setShow(true)} />
       </div>
       <div className="nav__middle">

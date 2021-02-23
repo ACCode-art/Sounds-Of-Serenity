@@ -1,13 +1,18 @@
 .popUp {
   background: rgb(0, 0, 0);
   color: white;
-  width: 400px;
+  width: 35%;
 
   position: fixed;
-  margin-left: -1330px;
-  margin-top: 70px;
+  margin-left: -53%;
+  margin-top: 3.5%;
   border-radius: 5px;
   padding: 10px 20px;
+  border: 1px solid white;
+  animation-name: fadeInOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 0.5s;
 }
 
 .popUp__track {
@@ -45,4 +50,13 @@
 
 .popUp > .popUp__top > .MuiSvgIcon-root {
   cursor: pointer;
+}
+
+@keyframes fadeInOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
