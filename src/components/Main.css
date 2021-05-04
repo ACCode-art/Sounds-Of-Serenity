@@ -4,6 +4,7 @@
   flex-direction: column;
   background-color: rgb(0, 0, 0);
   overflow-y: scroll;
+  padding-bottom: 50px;
 }
 
 .main::-webkit-scrollbar {

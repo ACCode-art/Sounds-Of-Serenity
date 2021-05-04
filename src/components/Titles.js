@@ -1,5 +1,5 @@
-import React from "react";
-import "./Titles.css";
+import React from 'react';
+import './Titles.css';
 
 function Titles() {
   return (
@@ -13,7 +13,6 @@ function Titles() {
           <p>Length</p>
         </div>
         <div className="titles__rightRelease">
-          <p>Release</p>
           <div className="titles__rightReleaseIcons"></div>
         </div>
       </div>

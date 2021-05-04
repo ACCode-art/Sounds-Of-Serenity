@@ -1,9 +1,9 @@
-import React, { useState, useContext } from "react";
-import Hero from "./Hero";
-import "./Main.css";
-import RecentlyAdded from "./RecentlyAdded";
-import { MainContext } from "../context/MainContext";
-import PopUp from "./PopUp";
+import React, { useState, useContext } from 'react';
+import Hero from './Hero';
+import './Main.css';
+import RecentlyAdded from './RecentlyAdded';
+import { MainContext } from '../context/MainContext';
+import PopUp from './PopUp';
 
 function Main() {
   const { searchTerm, setSearchTerm } = useContext(MainContext);
@@ -20,8 +20,6 @@ function Main() {
         />
       </div>
 
-      <RecentlyAdded />
-      <RecentlyAdded />
       <RecentlyAdded />
     </div>
   );

@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
-import "./Track.css";
-import { MainContext } from "../context/MainContext";
-import { FavoriteBorder } from "@material-ui/icons";
+import React, { useContext } from 'react';
+import './Track.css';
+import { MainContext } from '../context/MainContext';
+import { FavoriteBorder } from '@material-ui/icons';
 
 function Track({ title, release, background, length, src }) {
   const { togglePlaying, setCurrent, liked, setLiked } = useContext(
@@ -25,7 +25,6 @@ function Track({ title, release, background, length, src }) {
           <p>{length}</p>
         </div>
         <div className="track__rightRelease">
-          <p>{release}</p>
           <div className="track__rightReleaseIcons" onClick={pushHandler}>
             <FavoriteBorder />
           </div>

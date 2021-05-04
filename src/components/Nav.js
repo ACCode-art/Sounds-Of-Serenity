@@ -1,4 +1,4 @@
-import { Avatar, Slider } from "@material-ui/core";
+import { Avatar, Slider } from '@material-ui/core';
 import {
   AirlineSeatFlat,
   Favorite,
@@ -8,18 +8,18 @@ import {
   PlayCircleFilled,
   Repeat,
   VolumeUp,
-} from "@material-ui/icons";
-import React, { useContext, useRef, useState, useEffect } from "react";
-import "./Nav.css";
-import { MainContext } from "../context/MainContext";
-import logo from "../img/logo.png";
+} from '@material-ui/icons';
+import React, { useContext, useRef, useState, useEffect } from 'react';
+import './Nav.css';
+import { MainContext } from '../context/MainContext';
+import logo from '../img/logo.png';
 
 function Nav() {
   const { currentSong, togglePlaying, src, playing, setShow } = useContext(
     MainContext
   );
 
-  const audio = useRef("audio_tag");
+  const audio = useRef('audio_tag');
 
   const toggleAudio = () =>
     audio.current.paused ? audio.current.play() : audio.current.pause();
@@ -47,7 +47,7 @@ function Nav() {
   };
 
   const fmtMSS = (s) => {
-    return (s - (s %= 60)) / 60 + (9 < s ? ":" : ":0") + ~~s;
+    return (s - (s %= 60)) / 60 + (9 < s ? ':' : ':0') + ~~s;
   };
 
   return (
@@ -62,12 +62,12 @@ function Nav() {
       ></audio>
       <div className="nav__left">
         <img src={logo} alt="" />
-        <p>Sounds Of Serenity</p>
+
         <Favorite className="nav__leftLiked" onClick={() => setShow(true)} />
       </div>
       <div className="nav__middle">
         <div className="nav__middleTop">
-          <span className={!playing ? "" : "hide"}>
+          <span className={!playing ? '' : 'hide'}>
             <PlayCircleFilled
               onClick={() => {
                 togglePlaying();
@@ -75,7 +75,7 @@ function Nav() {
               }}
             />
           </span>
-          <span className={!playing ? "hide" : ""}>
+          <span className={!playing ? 'hide' : ''}>
             <PauseCircleFilled
               className="smallIcons"
               onClick={() => {

@@ -1,60 +1,76 @@
-import React, { createContext, useReducer, useState } from "react";
-import playerReducer from "./playerReducer";
+import React, { createContext, useReducer, useState } from 'react';
+import playerReducer from './playerReducer';
+
+import displacement from '../music/Displacement.mp3';
+import TIOC from '../music/The Ingredients of Consciousness.mp3';
+import theLight from '../music/The Light.mp3';
+import theStorm from '../music/The Storm.mp3';
+import withTheTruth from '../music/With The Truth.mp3';
+import ambienceOne from '../music/Ambience One.mp3';
 
 export const MainContext = createContext();
 
 export const MusicProvider = (props) => {
-  const initialState = { currentSong: "", playing: false, src: "" };
+  const initialState = { currentSong: '', playing: false, src: '' };
   const [state, dispatch] = useReducer(playerReducer, initialState);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState('');
   const [show, setShow] = useState(false);
   const [liked, setLiked] = useState([]);
 
-  console.log(liked);
-
   const setCurrent = (id, file) =>
-    dispatch({ type: "set-current-song", data: { id, file } });
+    dispatch({ type: 'set-current-song', data: { id, file } });
 
   const togglePlaying = () =>
-    dispatch({ type: "toggle-playing", data: state.playing ? false : true });
+    dispatch({ type: 'toggle-playing', data: state.playing ? false : true });
 
-  console.log(state);
   const songs = [
     {
-      title: "HomeRoad",
-      length: "3:52",
-      release: "31/10/31",
+      title: 'Ambience One',
+      length: '11:06',
+      release: '27/4/21',
       background:
-        "https://images.unsplash.com/photo-1454789415558-bdda08f4eabb?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      src:
-        "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Satin/Kai_Engel_-_09_-_Homeroad.mp3",
+        'https://images.pexels.com/photos/7373776/pexels-photo-7373776.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+      src: ambienceOne,
     },
     {
-      title: "Interception",
-      length: "2:52",
-      release: "19/11/91",
+      title: 'With The Truth',
+      length: '4:35',
+      release: '27/4/21',
       background:
-        "https://images.pexels.com/photos/936722/pexels-photo-936722.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-      src:
-        "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Satin/Kai_Engel_-_07_-_Interception.mp3",
+        'https://images.pexels.com/photos/1579245/pexels-photo-1579245.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+      src: withTheTruth,
     },
     {
-      title: "Sentinel",
-      length: "4:58",
-      release: "5/01/64",
+      title: 'Displacement',
+      length: '4:35',
+      release: '27/4/21',
       background:
-        "https://images.pexels.com/photos/694587/pexels-photo-694587.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-      src:
-        "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Satin/Kai_Engel_-_04_-_Sentinel.mp3",
+        'https://images.pexels.com/photos/5022847/pexels-photo-5022847.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+      src: displacement,
     },
     {
-      title: "Augmentation",
-      length: "4:58",
-      release: "5/01/64",
+      title: 'The Ingredients of Consciousness',
+      length: '2:52',
+      release: '19/11/91',
       background:
-        "https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-      src:
-        "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Satin/Kai_Engel_-_01_-_Augmentations.mp3",
+        'https://images.pexels.com/photos/4597252/pexels-photo-4597252.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+      src: TIOC,
+    },
+    {
+      title: 'The Light',
+      length: '4:58',
+      release: '5/01/64',
+      background:
+        'https://images.pexels.com/photos/831899/pexels-photo-831899.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+      src: theLight,
+    },
+    {
+      title: 'The Storm',
+      length: '4:58',
+      release: '5/01/64',
+      background:
+        'https://images.pexels.com/photos/772831/pexels-photo-772831.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+      src: theStorm,
     },
   ];
 
